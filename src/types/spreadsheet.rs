@@ -4,6 +4,7 @@ use super::sheet::Sheet;
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+// #[serde(deny_unknown_fields)]
 pub struct Spreadsheet {
     pub spreadsheet_id: String,
     // pub properties: SpreadsheetProperties,

@@ -1,9 +1,10 @@
 use serde::{Deserialize, Serialize};
 
-use super::common::Color;
+use super::{common::Color, other::ExtendedValue};
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+// #[serde(deny_unknown_fields)]
 pub struct Sheet {
     pub properties: SheetProperties,
     pub data: Vec<GridData>,
@@ -22,6 +23,7 @@ pub struct Sheet {
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+// #[serde(deny_unknown_fields)]
 pub struct SheetProperties {
     pub sheet_id: u64,
     pub title: String,
@@ -40,6 +42,7 @@ pub struct SheetProperties {
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+// #[serde(deny_unknown_fields)]
 pub struct GridData {
     #[serde(default)]
     pub start_row: u64,
@@ -52,15 +55,17 @@ pub struct GridData {
 
 #[derive(Debug, Default, Deserialize, Serialize)]
 #[serde(default)]
+// #[serde(deny_unknown_fields)]
 pub struct RowData {
     pub values: Vec<CellData>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+// #[serde(deny_unknown_fields)]
 pub struct CellData {
-    // pub user_entered_value: ExtendedValue,
-    // pub effective_value: ExtendedValue,
+    pub user_entered_value: Option<ExtendedValue>,
+    pub effective_value: Option<ExtendedValue>,
     pub formatted_value: Option<String>,
     // pub user_entered_format: CellFormat,
     // pub effective_format: CellFormat,
