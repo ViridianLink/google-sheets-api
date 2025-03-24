@@ -17,6 +17,6 @@ pub struct ExtendedValue {
 #[serde(rename_all = "camelCase")]
 // #[serde(deny_unknown_fields)]
 pub struct ColorStyle {
-    pub rgb_color: Color,
+    pub rgb_color: Option<Color>,
     // pub theme_color: ThemeColorType,
 }
