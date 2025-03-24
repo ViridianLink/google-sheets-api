@@ -8,7 +8,7 @@ use super::other::ColorStyle;
 pub struct CellFormat {
     // pub number_format: NumberFormat,
     // pub background_color: Color,
-    pub background_color_style: ColorStyle,
+    pub background_color_style: Option<ColorStyle>,
     // pub borders: Borders,
     // pub padding: Padding,
     // pub horizontal_alignment: HorizontalAlign,
