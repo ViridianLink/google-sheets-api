@@ -68,7 +68,7 @@ pub struct CellData {
     pub effective_value: Option<ExtendedValue>,
     pub formatted_value: Option<String>,
     pub user_entered_format: Option<CellFormat>,
-    pub effective_format: CellFormat,
+    pub effective_format: Option<CellFormat>,
     pub hyperlink: Option<String>,
     #[serde(default)]
     pub note: String,
