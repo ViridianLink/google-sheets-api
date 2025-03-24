@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::{common::Color, other::ExtendedValue};
+use super::{cells::CellFormat, common::Color, other::ExtendedValue};
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -55,7 +55,7 @@ pub struct GridData {
 
 #[derive(Debug, Default, Deserialize, Serialize)]
 #[serde(default)]
-// #[serde(deny_unknown_fields)]
+#[serde(deny_unknown_fields)]
 pub struct RowData {
     pub values: Vec<CellData>,
 }
@@ -67,8 +67,8 @@ pub struct CellData {
     pub user_entered_value: Option<ExtendedValue>,
     pub effective_value: Option<ExtendedValue>,
     pub formatted_value: Option<String>,
-    // pub user_entered_format: CellFormat,
-    // pub effective_format: CellFormat,
+    pub user_entered_format: CellFormat,
+    pub effective_format: CellFormat,
     pub hyperlink: Option<String>,
     #[serde(default)]
     pub note: String,
